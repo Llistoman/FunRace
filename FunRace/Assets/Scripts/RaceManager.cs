@@ -72,25 +72,6 @@ public class RaceManager : MonoBehaviour
 
         yield return MyWaitForSeconds(timeGo);
         raceText.enabled = false;
-
-
-        /*float time = 0.0f;
-        while (time <= timeStart)
-        {
-            if (time >= 2.0f)
-            {
-                raceText.text = ((int)(timeStart - time + 1)).ToString();
-            }
-
-            time += Time.unscaledDeltaTime;
-            yield return startWait;
-        }
-
-        raceText.text = "Go!";
-        player.SetPlayerEnabled(true);
-
-        yield return goWait;
-        raceText.enabled = false;*/
     }
 
     private IEnumerator RestartRace()

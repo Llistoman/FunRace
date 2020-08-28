@@ -6,10 +6,9 @@ public class CatmullRomSpline : MonoBehaviour
 {
     //Has to be at least 4 points
     public Transform[] controlPointsList;
-    //Are we making a line or a loop?
+
     public bool isLooping = true;
 
-    //Display without having to press play
     void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
@@ -19,7 +18,6 @@ public class CatmullRomSpline : MonoBehaviour
         {
             //Cant draw between the endpoints
             //Neither do we need to draw from the second to the last endpoint
-            //...if we are not making a looping line
             if ((i == 0 || i == controlPointsList.Length - 2 || i == controlPointsList.Length - 1) && !isLooping)
             {
                 continue;
@@ -42,10 +40,8 @@ public class CatmullRomSpline : MonoBehaviour
         Vector3 lastPos = p1;
 
         //The spline's resolution
-        //Make sure it's is adding up to 1, so 0.3 will give a gap, but 0.2 will work
         float resolution = 0.2f;
 
-        //How many times should we loop?
         int loops = Mathf.FloorToInt(1f / resolution);
 
         for (int i = 1; i <= loops; i++)
